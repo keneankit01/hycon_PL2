@@ -29,13 +29,20 @@ PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
 # Asserts
-TARGET_OTA_ASSERT_DEVICE := PL2,PL2_sprout,Plate2
+TARGET_OTA_ASSERT_DEVICE := PL2_sprout
+
+# Face Unlock
+$(call inherit-product, external/motorola/faceunlock/config.mk)
+# Google Apps
+TARGET_GAPPS_ARCH := arm64
+IS_PHONE := true
+#$(call inherit-product, vendor/gapps/config.mk)
 
 # Boot Animation
 TARGET_SCREEN_HEIGHT := 1920
 TARGET_SCREEN_WIDTH := 1080
 
-PRODUCT_NAME := lineage_PL2
+PRODUCT_NAME := evolution_PL2
 PRODUCT_DEVICE := PL2
 PRODUCT_MANUFACTURER := HMD Global
 PRODUCT_BRAND := Nokia
