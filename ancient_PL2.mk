@@ -19,10 +19,21 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 # Inherit some common Hycon stuff
-$(call inherit-product, vendor/aosp/config/common_full_phone.mk)
+$(call inherit-product, vendor/ancient/config/common_full_phone.mk)
 
 #nherit from PL2 device
 $(call inherit-product, device/nokia/PL2/device.mk)
+
+#Anciet STUFF
+ANCIENT_OFFICIAL := true
+FORCE_OTA := true
+TARGET_BOOT_ANIMATION_RES := 1080
+ANCIENT_GAPPS=true
+# Face Unlock
+$(call inherit-product, external/motorola/faceunlock/config.mk)
+# Google Apps
+TARGET_GAPPS_ARCH := arm64
+IS_PHONE := true
 
 # AAPT
 PRODUCT_AAPT_CONFIG := normal
@@ -41,7 +52,7 @@ TARGET_GAPPS_ARCH := arm64
 TARGET_SCREEN_HEIGHT := 1920
 TARGET_SCREEN_WIDTH := 1080
 
-PRODUCT_NAME := hycon_PL2
+PRODUCT_NAME := ancient_PL2
 PRODUCT_DEVICE := PL2
 PRODUCT_MANUFACTURER := HMD Global
 PRODUCT_BRAND := Nokia
